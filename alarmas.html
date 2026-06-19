@@ -245,7 +245,7 @@ footer a{color:var(--orange);text-decoration:underline;cursor:pointer}
     <div class="xgrid">
       <label class="xi"><input type="checkbox" id="extraCamara"><span>Cámara IP adicional <span style="color:var(--gray)">(+4-6€/mes aprox.)</span></span></label>
       <label class="xi"><input type="checkbox" id="extraSirena"><span>Sirena exterior <span style="color:var(--gray)">(+5-6€/mes aprox.)</span></span></label>
-      <label class="xi"><input type="checkbox" id="tieneMascota"><span>🐾 Tengo mascota en casa <span style="color:var(--gray)">(detectores compatibles)</span></span></label>
+      <label class="xi"><input type="checkbox" id="tieneMascota"><span><img src="rosco solo.png" alt="Rosco" style="width:18px;height:18px;vertical-align:middle;border-radius:50%;margin-right:3px"> Tengo mascota en casa <span style="color:var(--gray)">(detectores compatibles)</span></span></label>
     </div>
   </div>
 
@@ -454,7 +454,7 @@ function buildCard(r,solo){
   if(r.promo!==null) rows+='<div class="brow"><span class="l">Cuota normal</span><span class="v">'+fmt(r.base)+'</span></div>';
   if(r.extraCamara) rows+='<div class="brow"><span class="l">Cámara IP adicional</span><span class="v">+5,00 €</span></div>';
   if(r.extraSirena) rows+='<div class="brow"><span class="l">Sirena exterior</span><span class="v">+5,50 €</span></div>';
-  if(r.tieneMascota) rows+='<div class="brow"><span class="l">🐾 Detectores anti-mascota</span><span class="v">Incluido</span></div>';
+  if(r.tieneMascota) rows+='<div class="brow"><span class="l"><img src="rosco solo.png" alt="Rosco" style="width:16px;height:16px;vertical-align:middle;border-radius:50%;margin-right:3px"> Detectores anti-mascota</span><span class="v">Incluido</span></div>';
 
   var priceShown = r.totalPromo!==null ? r.totalPromo : r.total;
   var promoBadge = r.promo!==null ? '<div class="promo">🔥 Precio promocional 12 primeros meses</div>' : '';
