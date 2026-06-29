@@ -292,25 +292,23 @@ footer a{color:var(--orange);text-decoration:underline;cursor:pointer}
 </footer>
 
 <!-- MODAL NEGOCIO -->
-<div class="mover" id="modalNegocio" style="align-items:center;justify-content:center">
-  <div class="mbox" style="max-width:480px;text-align:center">
-    <button class="mclos" onclick="document.getElementById('modalNegocio').style.display='none'">✕</button>
-    <div style="font-size:2.5rem;margin-bottom:12px">🏢</div>
-    <h2 style="font-size:1.25rem;margin-bottom:10px">Oferta Personalizada para Negocio</h2>
-    <p style="font-size:.92rem;color:#555;margin-bottom:18px;line-height:1.6">
-      Las tarifas de alarma para negocio requieren una valoración personalizada según el tipo y tamaño del local.
-    </p>
-    <div style="background:linear-gradient(135deg,#D72B2B,#E86A1A);border-radius:12px;padding:18px;margin-bottom:16px">
-      <div style="color:#fff;font-size:1.05rem;font-weight:800;margin-bottom:6px">📞 Llámanos al 650 630 005</div>
-      <div style="color:rgba(255,255,255,.88);font-size:.82rem">o inscríbete y te haremos una oferta personalizada</div>
-    </div>
-    <a href="https://www.tecomparotodo.es/#formulario" target="_blank" rel="noopener"
-       style="display:inline-block;background:linear-gradient(135deg,#D72B2B,#E86A1A);color:#fff;padding:13px 30px;border-radius:50px;font-size:.95rem;font-weight:800;text-decoration:none;margin-bottom:12px">
-      ✅ Inscríbete ahora
+<div class="mover" id="modalNegocio" style="align-items:center;justify-content:center;display:none">
+  <div class="mbox" style="max-width:460px;text-align:center;padding:32px 24px">
+    <div style="font-size:3rem;margin-bottom:8px">🏢</div>
+    <h2 style="font-size:1.2rem;color:#1A1A1A;margin-bottom:16px;line-height:1.4">
+      Llámanos al <span style="color:#D72B2B">650 630 005</span><br>
+      ó inscríbete y te haremos<br>una oferta personalizada
+    </h2>
+    <a href="tel:650630005"
+       style="display:block;background:linear-gradient(135deg,#D72B2B,#E86A1A);color:#fff;padding:14px 20px;border-radius:12px;font-size:1.05rem;font-weight:800;text-decoration:none;margin-bottom:10px">
+      📞 Llamar ahora · 650 630 005
     </a>
-    <br>
-    <button onclick="document.getElementById('modalNegocio').style.display='none'" 
-            style="background:none;border:none;color:#888;font-size:.8rem;cursor:pointer;margin-top:8px;font-family:inherit">
+    <a href="https://www.tecomparotodo.es/#formulario" target="_blank" rel="noopener"
+       style="display:block;background:#1a1a2e;color:#fff;padding:14px 20px;border-radius:12px;font-size:1rem;font-weight:700;text-decoration:none;margin-bottom:16px">
+      ✅ Inscríbete y recibe tu oferta
+    </a>
+    <button onclick="document.getElementById('modalNegocio').style.display='none'"
+            style="background:none;border:1px solid #ddd;color:#888;font-size:.85rem;cursor:pointer;padding:8px 20px;border-radius:8px;font-family:inherit">
       Cerrar
     </button>
   </div>
@@ -385,7 +383,7 @@ function setModo(m){
   document.getElementById('btn-negocio').className=m==='negocio'?'on':'';
 }
 document.getElementById('btn-hogar').onclick=function(){setModo('hogar');};
-document.getElementById('btn-negocio').onclick=function(){setModo('negocio');};
+// negocio handled by showNegocioModal in HTML onclick
 
 function toggleEmpresa(emp){
   var chk=document.getElementById('chk-'+emp);
