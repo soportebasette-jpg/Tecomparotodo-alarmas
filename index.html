@@ -170,6 +170,10 @@ main{max-width:1020px;margin:0 auto;padding:24px 14px 100px}
 
 .promo-pill{background:rgba(90,120,255,.08);border:1px solid rgba(90,120,255,.2);border-radius:7px;padding:6px 10px;font-size:.72rem;font-weight:600;color:#3B4FCC;text-align:center;margin-bottom:6px}
 
+.perk-box{display:flex;align-items:flex-start;gap:8px;background:linear-gradient(135deg,#FFF6DA,#FFE9AE);border:1px solid rgba(245,180,0,.45);border-radius:10px;padding:10px 12px;font-size:.76rem;font-weight:600;color:#7A5200;margin-top:8px;line-height:1.42;text-align:left;word-break:break-word}
+.perk-box .pi{font-size:1.15rem;flex-shrink:0;line-height:1.3}
+.perk-box strong{color:#5C3D00;display:block;margin-bottom:1px}
+
 .save-pill,.more-pill{margin-top:8px;padding:7px 10px;border-radius:8px;text-align:center;font-size:.78rem;font-weight:700}
 .save-pill{background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.25);color:#007A3D}
 .more-pill{background:rgba(232,106,26,.08);border:1px solid rgba(232,106,26,.2);color:var(--orange)}
@@ -360,7 +364,7 @@ var CO_LOGOS = {
 var ALARMAS = {
   '3d': {
     n:'3D Seguridad', c:'#0E2A3D',
-    hogar:{ perm:24, inst:'Gratis', basico:{ promo:20*1.21, normal:31*1.21 }, plus:{ promo:24*1.21, normal:35*1.21 }, promoTxt:'Promo 12 meses, después precio normal' },
+    hogar:{ perm:24, inst:'Gratis', basico:{ promo:20*1.21, normal:35*1.21 }, plus:{ promo:24*1.21, normal:35*1.21 }, promoTxt:'Promo 12 meses, después precio normal', perk:'<strong>¿Segunda contratación?</strong> Si contratas la alarma con nosotros para tu segunda residencia, te pagamos la 4ª y 5ª cuota del primer año.' },
     negocio:{ perm:36, inst:'Gratis', basico:{ promo:24.20, normal:42.35 }, plus:{ promo:24.20, normal:42.35 }, promoTxt:'Promo 1er año, después 42,35 € · IVA incluido' }
   },
   verisure: {
@@ -380,8 +384,8 @@ var ALARMAS = {
   },
   prosegur: {
     n:'Movistar Prosegur', c:'#F5B400',
-    hogar:{ perm:36, inst:'Gratis', basico:{ normal:48.90 }, plus:{ normal:48.90+4.96 }, promoTxt:'Alarma Hogar SuperSeguridad · IVA incluido' },
-    negocio:{ perm:36, inst:'Gratis', basico:{ normal:48.90 }, plus:{ normal:48.90 }, promoTxt:'Alarma Negocio SuperSeguridad · IVA incluido' }
+    hogar:{ perm:36, inst:'Gratis', basico:{ normal:48.90 }, plus:{ normal:48.90+4.96 }, promoTxt:'Alarma Hogar SuperSeguridad · IVA incluido', perk:'<strong>¿Segunda contratación?</strong> Descuento de 5 €/mes a partir de tu segundo contrato si contratas con nosotros.' },
+    negocio:{ perm:36, inst:'Gratis', basico:{ normal:48.90 }, plus:{ normal:48.90 }, promoTxt:'Alarma Negocio SuperSeguridad · IVA incluido', perk:'<strong>¿Segunda contratación?</strong> Descuento de 5 €/mes a partir de tu segundo contrato si contratas con nosotros.' }
   }
 };
 
@@ -449,7 +453,8 @@ function calcular(){
       base:base, promo:promo, total:total, totalPromo:totalPromo,
       extraCamara:extraCamara, extraSirena:extraSirena, extraTotal:extraTotal,
       tieneMascota:tieneMascota,
-      promoTxt:modoData.promoTxt
+      promoTxt:modoData.promoTxt,
+      perk:modoData.perk || null
     });
   });
 
@@ -514,6 +519,7 @@ function buildCard(r,solo){
     '</div>'+
     '<div class="bdown">'+rows+'</div>'+
     pill+
+    (r.perk?'<div class="perk-box"><span class="pi">🎁</span><span>'+r.perk+'</span></div>':'')+
     '<button class="btn-pdf" data-emp="'+r.empresa+'" onclick="pdfClick(this)">📄 Descargar oferta PDF '+r.nombre+'</button>'+
   '</div>';
 }
